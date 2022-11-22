@@ -1,7 +1,7 @@
 ---
-title: "Your A4 Report Title (TODO: Revise title)"
-author: "Your Name"
-date: '2022-11-01'
+title: "Incarceration Data reveal Patterns of Inequality in U.S"
+author: "Author: Zonglin Zuo"
+date: 'Date: 2022-11-21'
 output: html_document
 ---
 
@@ -11,35 +11,74 @@ source("../source/analysis.R")
 ```
 
 ## Abstract 
-[TODO: Include a short abstract (about 50 words)]
+The **prison system** is one of the most blatant examples of **racism** in the United States. _Complex social and political processes_ have contributed to the _disproportionate imprisonment_ of persons of color. In this page, I will examine and integrate information/data from the prison system in order to investigate and identify its problems and causes.
 
-# Test (TODO: Remove before submission!!)
-```{r echo=FALSE}
-q1_string <- test_query1()
-num <- 5
-```
-As you know, this is a markdown report. The [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) is **useful!**
+## Introduction
+Racism developed in the late 19th century, when vast quantities of African resources, including human resources sold as slaves, were brought to European and American nations. Because of this, racism has been an issue in the United States for quite some time, and the _prison system_ is one of the most blatant displays of _racism_ in the country. This issue is exacerbated by the intricate social and political processes that contribute to the disproportionate incarceration of people of color.
 
-* Here's a test of a dynamic variable. Say **"`r q1_string`!!!** 
-* Here's another test. A vector
-of numbers: `r test_query2(num)`.
+On the basis of this phenomena, **the direct stakeholders** of this data analysis are members of minority groups, while **the indirect stakeholders** are the whole human population. Exposure to the study of such analysis aid in the development of a society that is _equitable, varied, and harmonious_. In this page, I will examine the **origins and consequences of racism** by focusing on the proportion of persons of color jailed and their distribution throughout the United States through the perspective of equality and diversity.
 
-Recall that _{r echo=TRUE}_ can be used to display the code, 
-which is very useful when developing and debugging a report. Here's an example: 
+## Data Summary
 
-```{r echo=TRUE}
-num <- 5
-sum <- sum(test_query2(num))
-print(sum)
+```{r summary,echo = FALSE, message=FALSE, warning=FALSE,results='asis'}
+source("../source/analysis.R")
+data_summary(new_data)
 ```
 
-## Introduction 
-[TODO]
+## Growth of the U.S. Prison Population
 
-## Data Summary 
-[TODO]
+```{r Growth, echo = FALSE, message=FALSE, warning=FALSE}
+source("../source/analysis.R")
+prison_pop_data <- get_year_jail_pop()
+plot_jail_pop_for_us(prison_pop_data)
+```
 
-[TODO ... other sections ... See Canvas for details]
+What observations may be made from the chart?
 
-_All the very best with your work!_
+From 1980 to the beginning of the 21st century, it is evident from the graph that the crime rate in the United States has increased significantly and dramatically. However, between 2010 and 2018, the crime rate leveled out and sometimes decreased somewhat. The crime rate is stabilizing and nearing a saturation point owing to the constant development of national education and regulation, as seen by this chart.
+
+## Growth of Prison Population by State
+```{r GrowthofPrison, echo = FALSE, message=FALSE, warning=FALSE}
+source("../source/analysis.R")
+states <- c("WA", "OR", "CA","AL","TN")
+get_jail_pop_states <- get_jail_pop_by_states(states)
+plot_jail_pop_by_states(get_jail_pop_states)
+```
+
+What information can be gleaned from the icon regarding the Growth of Prison Population by State?
+
+I examine the evolution of the incarcerated population over time in the five states included in the dataset. Utilize a grouped line chart to visualize state-by-state differences as they change from year to year. By separating groups by color and line, we can more easily compare results and argue. From the graph, we can see that the crime rate in California has been high, whereas the crime rate in the other states is either leveling off or rising slowly.We can know that the law and order environment of each state in the United States will lead to an increase or decrease in the criminal population.
+
+## The Comparison of Race that reveals potential patterns of inequality
+
+```{r comparison, echo = FALSE, message=FALSE, warning=FALSE}
+source("../source/analysis.R")
+library(ggplot2)
+library(hrbrthemes)
+black_white_pop <- section5()
+section5_plot(black_white_pop)
+```
+
+What conclusions can we get from looking at the imprisonment rates of blacks and whites side by side?
+
+I use a scatter plot to compare these two sets of data since this can clearly identify the link between the two; and, from the figure, we can readily notice that regardless of whether it is a black group or a white group at the early stage of the process. The number of persons who are being incarcerated is on the rise. It is easy to see that there is a difficulty of equality between the two, and difficulties of this kind tend to make one another more difficult to deal with.
+
+## A map shows potential patterns of inequality that vary geographically in U.S.
+
+```{r map, echo = FALSE, message=FALSE, warning=FALSE}
+source("../source/analysis.R")
+data_use <- section6()
+section6_state(data_use)
+```
+
+What conclusion can we get from map?
+
+We can tell from the map, just by looking at the intensity of the color shifts, which states have the most and which have the fewest crimes. In addition, the map shows that the states with the highest crime rates in the USA are California in the west and Texas in the south. To sum up, these states have high crime rates and severe equitable issues.
+
+
+
+
+
+
+
 
