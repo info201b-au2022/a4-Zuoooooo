@@ -2,6 +2,7 @@ library(tidyverse)
 library(dplyr)
 library(ggplot2)
 library(hrbrthemes)
+library(scales)
 
 # The functions might be useful for A4
 source("../source/a4-helpers.R")
@@ -86,10 +87,12 @@ get_year_jail_pop <- function() {
 
 # This function will return a bar chart to show the growth of the U.S. Prison Population
 plot_jail_pop_for_us <- function(prison_pop_data)  {
+  options(scipen = 999)
   graphy <- ggplot(data = prison_pop_data, aes(x = year, y = year_total)) +
     geom_bar(stat="identity") + 
+    scale_y_continuous(labels = scales::comma) +
     labs(title = "Growth of the U.S. Prison Population(1970-2018)", 
-            x = "Year", y = "Total Jail Population", 
+            x = "Year", y = "Total Jail Population",
          caption = "The chart shows the growth of the U.S. Prison Population from 1970 to 2018")
   return(graphy)   
 } 
@@ -110,8 +113,10 @@ get_jail_pop_by_states <- function(states) {
 
 ## This function will return a line chart to show the growth Prison Population by State
 plot_jail_pop_by_states <- function(states) {
+  options(scipen = 999)
   graphy <- ggplot(data = get_jail_pop_states, aes(x = year, y = state_pop, color = state)) +
     geom_line() +
+    scale_y_continuous(labels = scales::comma) +
     labs(title = "Growth of Prison Population by State (1970-2018)", 
          x = "Year", y = "Total Jail Population",
          caption = "The chart shows the growth of the U.S. Prison Population by states from 1970 to 2018")
@@ -135,13 +140,17 @@ section5 <- function() {
 
 ## This function will return a scatter plot to reveal potential patterns of inequality 
 section5_plot <- function(black_white_pop) {
+  options(scipen = 999)
   graphy <- ggplot(data = black_white_pop, aes(x = black_jail_pop, y = white_jail_pop)) +
     geom_point() +
     theme_ipsum() +
-  labs(title = "The relationship between white people and the black people", 
+    scale_y_continuous(labels = scales::comma) +
+    scale_x_continuous(labels = scales::comma) +
+  labs(title = "White/Black Incarceration", 
       x = "White Jail Population", y = "Black Jail Population",
-       caption = "The chart shows the relationship between white people and the black people in jail")
-  return(graphy)
+       caption = "The chart shows two continuous variables to compare the White/Black Jail population") +
+  geom_smooth(method = lm, color = "red")
+    return(graphy)
 }
 
 ## Section 6  ---- 
@@ -164,13 +173,16 @@ section6_state <- function(data_use) {
   state$region <- state.abb[match(state$region, toupper(state.name))]
   names(data_use)[names(data_use)=="state"] <- "region"
   data1 <- inner_join(state, data_use,by = "region")
-  graph <- ggplot(data = data1, aes(x = long, y = lat,group=group))+
+  graph <- ggplot(data = data1, aes(x = long, y = lat,group=group)) +
     geom_polygon(aes(fill = total_jail_pop), color = "black")+
-    scale_fill_continuous(name = "total jail population")+
+    scale_fill_continuous(name = "total jail population") +
+    scale_fill_continuous(na.value = "white", low = "gray100", high = "gray0") +
     ggtitle("Total jail population of each state in 2018") +
     labs(x= "latitude", y= "longitude", caption = "The map shows the prison population of different state in U.S.")
   return(graph)
 }
+
+
 
 
 

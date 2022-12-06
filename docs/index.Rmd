@@ -10,13 +10,15 @@ source("../source/a4-helpers.R")
 source("../source/analysis.R")
 ```
 
-## Abstract 
-The **prison system** is one of the most blatant examples of **racism** in the United States. _Complex social and political processes_ have contributed to the _disproportionate imprisonment_ of persons of color. In this page, I will examine and integrate information/data from the prison system in order to investigate and identify its problems and causes.
+## Abstract
+
+The **prison system** is one of the most blatant examples of **racism** in the United States. *Complex social and political processes* have contributed to the *disproportionate imprisonment* of persons of color. In this page, I will examine and integrate information/data from the prison system in order to investigate and identify its problems and causes.
 
 ## Introduction
-Racism developed in the late 19th century, when vast quantities of African resources, including human resources sold as slaves, were brought to European and American nations. Because of this, racism has been an issue in the United States for quite some time, and the _prison system_ is one of the most blatant displays of _racism_ in the country. This issue is exacerbated by the intricate social and political processes that contribute to the disproportionate incarceration of people of color.
 
-On the basis of this phenomena, **the direct stakeholders** of this data analysis are members of minority groups, while **the indirect stakeholders** are the whole human population. Exposure to the study of such analysis aid in the development of a society that is _equitable, varied, and harmonious_. In this page, I will examine the **origins and consequences of racism** by focusing on the proportion of persons of color jailed and their distribution throughout the United States through the perspective of equality and diversity.
+Racism developed in the late 19th century, when vast quantities of African resources, including human resources sold as slaves, were brought to European and American nations. Because of this, racism has been an issue in the United States for quite some time, and the *prison system* is one of the most blatant displays of *racism* in the country. This issue is exacerbated by the intricate social and political processes that contribute to the disproportionate incarceration of people of color.
+
+On the basis of this phenomena, **the direct stakeholders** of this data analysis are members of minority groups, while **the indirect stakeholders** are the whole human population. Exposure to the study of such analysis aid in the development of a society that is *equitable, varied, and harmonious*. In this page, I will examine the **origins and consequences of racism** by focusing on the proportion of persons of color jailed and their distribution throughout the United States through the perspective of equality and diversity.
 
 ## Data Summary
 
@@ -38,6 +40,7 @@ What observations may be made from the chart?
 From 1980 to the beginning of the 21st century, it is evident from the graph that the crime rate in the United States has increased significantly and dramatically. However, between 2010 and 2018, the crime rate leveled out and sometimes decreased somewhat. The crime rate is stabilizing and nearing a saturation point owing to the constant development of national education and regulation, as seen by this chart.
 
 ## Growth of Prison Population by State
+
 ```{r GrowthofPrison, echo = FALSE, message=FALSE, warning=FALSE}
 source("../source/analysis.R")
 states <- c("WA", "OR", "CA","AL","TN")
@@ -48,7 +51,7 @@ plot_jail_pop_by_states(get_jail_pop_states)
 What information can be gleaned from the icon regarding the Growth of Prison Population by State?
 
 I examine the evolution of the incarcerated population over time in the five states included in the dataset. Utilize a grouped line chart to visualize state-by-state differences as they change from year to year. By separating groups by color and line, we can more easily compare results and argue. From the graph, we can see that the crime rate in California has been high, whereas the crime rate in the other states is either leveling off or rising slowly.We can know that the law and order environment of each state in the United States will lead to an increase or decrease in the criminal population.
-
+r
 ## The Comparison of Race that reveals potential patterns of inequality
 
 ```{r comparison, echo = FALSE, message=FALSE, warning=FALSE}
@@ -61,7 +64,7 @@ section5_plot(black_white_pop)
 
 What conclusions can we get from looking at the imprisonment rates of blacks and whites side by side?
 
-I use a scatter plot to compare these two sets of data since this can clearly identify the link between the two; and, from the figure, we can readily notice that regardless of whether it is a black group or a white group at the early stage of the process. The number of persons who are being incarcerated is on the rise. It is easy to see that there is a difficulty of equality between the two, and difficulties of this kind tend to make one another more difficult to deal with.
+I use a scatter plot to present the relationship between black and white jail population in a data-set. From the figure, we can readily notice that regardless of whether it is a black group or a white group at the early stage of the process. The number of persons who are being incarcerated is on the rise. From the figure, we can see that there are large gaps in the early data sets, and the later data sets are denser. It shows that the relationship between the two is stronger, which can be seen from the more concentrated points along the line. In addition, when the data points are denser in the later period, we can see that the crime rate of whites is much lower than that of blacks. It is easy to see that there is a difficulty of equality between white and black people.
 
 ## A map shows potential patterns of inequality that vary geographically in U.S.
 
@@ -73,12 +76,6 @@ section6_state(data_use)
 
 What conclusion can we get from map?
 
-We can tell from the map, just by looking at the intensity of the color shifts, which states have the most and which have the fewest crimes. In addition, the map shows that the states with the highest crime rates in the USA are California in the west and Texas in the south. To sum up, these states have high crime rates and severe equitable issues.
+As we can see from the shades of the map, California and Texas have the highest crime rates in the United States. Through further data analysis and background investigation, it can be concluded that the number of local residents and immigrants in California is huge, because California's economy and climate are very suitable for people to live and work. Therefore, a large population combined with economic excellence has led to California becoming the city with the highest population crime rate.
 
-
-
-
-
-
-
-
+From such an analysis, we can see that we cannot judge the unfair pattern of an area by the criminal population alone, we should analyze it from multiple aspects to get a more reliable ratio.
